@@ -8,6 +8,7 @@ class Level {
     letterBank = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
     currentLetter = '';
 
+
     constructor (w) {
         this.word = w;
     }
@@ -25,14 +26,17 @@ class Level {
         
         for(const i of this.letterBank) {
             if (i === l) {
-                this.currentLetter = l;
-                console.log('found');
-            } else {
-                console.log('not found');
-                return false;
-            }
+                this.currentLetter = i;
+                this.letterBank = this.letterBank.filter(letter => letter != i)
+                return true;
+            } 
         }
+        return false;
     }
+
+
+
+
 }
 
 const example = new Level (animals[1]);
@@ -42,3 +46,4 @@ const test = example.promptLetter();
 example.promptCheck(test);
 console.log(test);
 console.log(example.currentLetter);
+console.log(example.letterBank);
