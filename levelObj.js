@@ -23,8 +23,8 @@ class Level {
 
     promptCheck (l) {
         
-        for(let i=0; i < this.letterBank.length; i++) {
-            if (l === this.letterBank[i]) {
+        for(const i of this.letterBank) {
+            if (l === l) {
                 this.currentLetter = l;
                 console.log('found');
             } else {
