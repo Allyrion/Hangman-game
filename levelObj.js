@@ -1,4 +1,3 @@
-const animals = require('./category');
 const prompt = require("prompt-sync")();
 
 class Level {
@@ -11,6 +10,10 @@ class Level {
 
     constructor (w) {
         this.word = w;
+    }
+
+    displayChances(){
+        console.log(`You currently have ${this.chances} chances left to guess the word.`)
     }
 
     displayLetterBank () {
@@ -34,16 +37,39 @@ class Level {
         return false;
     }
 
+    confirmLetter() {
+        if (this.word.searchWord(this.currentLetter) === false) {
+            return false;
+        } else {
+            
+            return true;
+        }
+    }
+
+    checkWin() {
+        if (this.word.letters === this.word.dashes) {
+            return true;
+        }
+    }
+
+    checkLoss() {
+        if (this.chances < 1) {
+            return true;
+        }
+    }
+
 
 
 
 }
 
-const example = new Level (animals[1]);
+module.exports = Level;
+
+/* const example = new Level (animals[1]);
 example.displayLetterBank();
 example.word.displayDashes();
 const test = example.promptLetter();
 example.promptCheck(test);
 console.log(test);
 console.log(example.currentLetter);
-console.log(example.letterBank);
+console.log(example.letterBank); */

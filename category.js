@@ -1,5 +1,6 @@
 const word = require("./Word.js");
 
+
 const animals = [];
 animals.push(new word (["c","o","b","r","a"]));
 animals.push(new word (["j","a","g","u","a","r"]));
@@ -21,7 +22,13 @@ games.push(new word (["l","e","a","g","u","e"," ","o","f"," ","l","e","g","e","n
 games.push(new word (["c","h","r","o","n","o"," ","c","r","o","s","s"]));
 games.push(new word (["m","e","t","a","l"," ","g","e","a","r"," ","s","o","l","i","d"]));
 
-module.exports = animals;
+
+category = [];
+category.push(animals);
+category.push(countries);
+category.push(games);
+
+module.exports = category;
 
 /*
 console.log(animals);

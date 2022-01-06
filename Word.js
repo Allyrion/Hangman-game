@@ -41,6 +41,12 @@ class Word {
                 this.dashes[i] = arr[i];
             }
         }
+
+        if (found === true) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }
@@ -50,12 +56,13 @@ class Word {
 module.exports = Word;
 
 /*
-const snakeWord = new word (["s","n","a","k","e"," ","c","o","b","r","a"]);
+ const snakeWord = new Word (["s","n","a","k","e"," ","c","o","b","r","a"]);
 
-snakeWord.createDashes();
 console.log(snakeWord.dashes);
 
 snakeWord.displayDashes();
 
 snakeWord.searchWord("a");
-snakeWord.displayDashes(); */
+snakeWord.displayDashes(); 
+console.log(snakeWord.searchWord("a"));
+console.log(snakeWord.letters) */
