@@ -24,7 +24,7 @@ class Level {
     promptCheck (l) {
         
         for(const i of this.letterBank) {
-            if (l === l) {
+            if (i === l) {
                 this.currentLetter = l;
                 console.log('found');
             } else {
