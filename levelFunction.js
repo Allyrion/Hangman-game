@@ -22,14 +22,19 @@
         currentLevel.displayChances();
         currentLevel.displayLetterBank();
         currentLevel.word.displayDashes();
+        console.log(currentLevel.word.letters);
+        console.log(currentLevel.word.dashes);
+
         
         //Check win/loss conditions
         if (currentLevel.checkLoss() === true) {
             levelResult = 0;
+            break;
         }
 
         if (currentLevel.checkWin() === true) {
             levelResult = 1;
+            break;
         }
 
         //Check for letter

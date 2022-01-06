@@ -1,4 +1,6 @@
 const prompt = require("prompt-sync")();
+const isEqual = require('lodash.isequal');
+
 
 class Level {
 
@@ -41,13 +43,13 @@ class Level {
         if (this.word.searchWord(this.currentLetter) === false) {
             return false;
         } else {
-            
+
             return true;
         }
     }
 
     checkWin() {
-        if (this.word.letters === this.word.dashes) {
+        if (isEqual(this.word.letters, this.word.dashes) === true) {
             return true;
         }
     }
