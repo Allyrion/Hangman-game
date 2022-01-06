@@ -1,0 +1,41 @@
+Game flow -
+
+Game Menu 
+1) Start Game
+2) Read game rules
+3) Exit game
+
+Rules -
+Explanation of game rules, return to main Menu when user is ready
+
+----------
+Game starts
+
+- Pick a word category
+- Each category contains 5 words (5 levels)
+- Randomize the words
+- Each word can be an array of letters
+
+
+Letter bank
+- Array of the alphabet
+- Used for each word
+- Letter removed when used within a level
+
+
+-------
+Gameplay
+
+- User has 10 chances to get a letter wrong.
+- User picks a letter not continained in the word 
+1) They lose a chance
+2) The hangman drawing is progressed
+3) If they have no chances or the drawing is complete, they get a defeat message
+
+
+- User picks a correct letter:
+1) The letter is shown in the word
+2) The hangman drawing is still showm but not progressed
+3) How many chances they have left is shown.
+4) If they have completed the word, they are given a victory message and moved on to next level.
+
