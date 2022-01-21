@@ -30,6 +30,16 @@ class Word {
         console.log(displayedDashes);
     }
 
+    displayWord() {
+        let displayedWord = "";
+
+        for(let i=0; i<this.letters.length; i++) {
+            displayedWord += this.letters[i];
+        }
+
+        console.log(displayedWord);
+    }
+
     searchWord(letter) {
 
         let found = false;

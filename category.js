@@ -30,7 +30,9 @@ category.push(games);
 
 module.exports = category;
 
-/*
+
+
+/* TESTING logs - 
 console.log(animals);
 
 

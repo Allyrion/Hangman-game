@@ -3,7 +3,7 @@
 
     let sample = require('lodash.sample');
     const category = require('./category');
-    const levelObj = require('./levelObj')
+    const levelObj = require('./levelObj');
     
     //Pick a random word from category
     const test = sample(category[0]);
@@ -18,7 +18,7 @@
     
     do {
         //Display for user
-        //placeholder - DISPLAY HANGMAN
+        currentLevel.displayHangman()
         currentLevel.displayChances();
         currentLevel.displayLetterBank();
         currentLevel.word.displayDashes();
@@ -73,7 +73,8 @@
 
 
     if (levelResult === 0) {
-        console.log("Sorry, you ran out of chances. Hang in there till next time!")
+        console.log("Sorry, you ran out of chances. Hang in there till next time! The correct word was -")
+        currentLevel.word.displayWord();
     } else if (levelResult === 1) {
         console.log("Congratulations! Let's move on to the next level!")
     } 
