@@ -27,7 +27,9 @@ class Word {
             displayedDashes += this.dashes[i];
         }
 
-        console.log(displayedDashes);
+        console.log(`
+The word: ${displayedDashes}
+`);
     }
 
     displayWord() {

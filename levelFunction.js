@@ -1,4 +1,7 @@
  
+    
+const levelFunction = function (w) {
+    
     // Requirements
 
     let sample = require('lodash.sample');
@@ -6,10 +9,10 @@
     const levelObj = require('./levelObj');
     
     //Pick a random word from category
-    const test = sample(category[0]);
+    // const test = sample(category[0]);
 
     //Set the level object with the given word
-    const currentLevel = new levelObj(test);
+    const currentLevel = new levelObj(w);
 
     //Used to determind result of the level and break loop
     let levelResult = undefined;
@@ -22,8 +25,8 @@
         currentLevel.displayChances();
         currentLevel.displayLetterBank();
         currentLevel.word.displayDashes();
-        console.log(currentLevel.word.letters);
-        console.log(currentLevel.word.dashes);
+        // console.log(currentLevel.word.letters);
+        // console.log(currentLevel.word.dashes);
 
         
         //Check win/loss conditions
@@ -75,6 +78,12 @@
     if (levelResult === 0) {
         console.log("Sorry, you ran out of chances. Hang in there till next time! The correct word was -")
         currentLevel.word.displayWord();
+        return false;
     } else if (levelResult === 1) {
-        console.log("Congratulations! Let's move on to the next level!")
-    } 
+        return true;
+    }
+}
+
+module.exports = levelFunction;
+
+    

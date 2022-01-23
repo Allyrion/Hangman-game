@@ -4,6 +4,10 @@
 const main = (()=> {
 
     const prompt = require("prompt-sync")();
+    let sample = require('lodash.sample');
+    const category = require('./category');
+    const levelObj = require('./levelObj');
+    const levelFunction = require('./levelFunction');
 
     
     const displayMenu = function () {
@@ -82,7 +86,112 @@ Goodluck and have fun!`);
                 } else {
                     console.log(`Please choose between option 1 or 2.`)
                 }
-            } while (instructionSelect = true);
+            } while (instructionValidation === false);
+        }
+
+        if (userSelect == `1`) {
+
+            console.log(
+                `Let's get going! What category would you like to choose? 
+    1. Animals
+    2. Countries
+    3. Video Games`);
+
+                let categorySelected;
+
+             do {
+
+                categoryValidation = false;
+
+                const userCategory = prompt(`Please choose 1, 2 or 3: `);
+
+                //This stores the user selected category
+                if (userCategory === `1`) {
+                    categorySelected = category[0];
+                    categoryValidation = true;
+                    break;
+                } else if (userCategory === `2`) {
+                    categorySelected = category[1];
+                    categoryValidation = true;
+                    break;
+                } else if (userCategory === `3`) {
+                    categorySelected = category[2];
+                    categoryValidation = true;
+                    break;
+                } else {
+                    console.log(`Please type 1, 2 or 3 based on the category you wish to pick.`);
+                }
+
+            } while (categoryValidation === false);
+
+
+
+            for (let i = 0; i < 5; i++) {
+
+                const randomWord = sample(categorySelected);
+                categorySelected = categorySelected.filter(word => word != randomWord);
+
+                levelResult = levelFunction(randomWord);
+
+                //If user loses, they may choose to Return to Main Menu or quit the game.
+                if (levelResult === false) {
+                    const lossDecision = prompt(`Press 1 to return to Main Menu. Press 2 to Quit.`);
+
+                    do {
+
+                        lossValidation = false;
+
+                        if (lossDecision === `1`) {
+                            break;
+                        } else if (lossDecision === `2`) {
+                            gameEnd = true;
+                            break;
+                        } else {
+                            console.log(`Not a valid entry - Press 1 to return to Main Menu. Press 2 to Quit.`);
+                        }
+                    } while (lossValidation === false);
+
+                    break;
+                }
+
+                //User wins and proceeds to next level
+
+                if (levelResult === true && i !== 4) {
+                    console.log("Congratulations! Let's move on to the next level!")
+                } 
+
+                //User wins the game, they may choose to Return to Main Menu or quit the game.
+
+                if (levelResult === true && i === 4) {
+                    console.log("Congratulations! You won the game! Would you like to play again?");
+
+                    const winDecision = prompt(`Press 1 to return to Main Menu. Press 2 to Quit: `);
+                    winValidation = false; 
+
+                    do {
+                        winValidation = false; 
+
+                        if (winDecision === `1`) {
+                            break;
+                        } else if (winDecision === `2`) {
+                            gameEnd = true;
+                            break;
+                        } else {
+                            console.log(`Not a valid entry - Press 1 to return to Main Menu. Press 2 to Quit.`);
+                        }
+                    } while (winValidation === false);
+
+                    break;
+
+                }
+
+
+            }
+
+
+
+
+
         }
 
 
