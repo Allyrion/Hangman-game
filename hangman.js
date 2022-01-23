@@ -135,7 +135,7 @@ Goodluck and have fun!`);
 
                 //If user loses, they may choose to Return to Main Menu or quit the game.
                 if (levelResult === false) {
-                    const lossDecision = prompt(`Press 1 to return to Main Menu. Press 2 to Quit.`);
+                    const lossDecision = prompt(`Press 1 to return to Main Menu. Press 2 to Quit: `);
 
                     do {
 
@@ -158,6 +158,35 @@ Goodluck and have fun!`);
 
                 if (levelResult === true && i !== 4) {
                     console.log("Congratulations! Let's move on to the next level!")
+
+                    
+                    levelLeave = false;
+
+                    // This allows the user to leave after winning any level.
+                    do {
+                        levelValidation = false; 
+
+                        const levelDecision = prompt(`Press 1 to Continue. 2 to return to Main Menu. Press 3 to Quit: `);
+
+                        if (levelDecision === `1`) {
+                            break;
+                        } else if (levelDecision === `2`) {
+                            levelLeave = true;
+                            break;
+                        } else if (levelDecision === `3`){
+                            levelLeave = true;
+                            gameEnd = true;
+                            break;
+                        } else {
+                            console.log(`Not a valid entry - Press 1, 2 or 3.`);
+                        }
+                    } while (levelValidation === false);
+
+                    if (levelLeave === true) {
+                        break;
+                    }
+
+
                 } 
 
                 //User wins the game, they may choose to Return to Main Menu or quit the game.
@@ -166,7 +195,6 @@ Goodluck and have fun!`);
                     console.log("Congratulations! You won the game! Would you like to play again?");
 
                     const winDecision = prompt(`Press 1 to return to Main Menu. Press 2 to Quit: `);
-                    winValidation = false; 
 
                     do {
                         winValidation = false; 
