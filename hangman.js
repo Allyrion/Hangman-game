@@ -46,6 +46,7 @@ const main = (()=> {
             gameEnd = true;
         }
 
+        // Game Instructions
         if (userSelect === `2`) {
             console.log(`Welcome to Hangman! In this game, you'll be give a word based on the category you pick. 
 The word will be hidden and you have to guess what letters are in the word.
@@ -66,7 +67,7 @@ Please make consult the bank when deciding which letter you wish to guess.
 
 Goodluck and have fun!`);
         
-
+            // Standard Choice Validation Loop
             do {
 
                 console.log (`Please choose how to proceed:
@@ -89,8 +90,12 @@ Goodluck and have fun!`);
             } while (instructionValidation === false);
         }
 
+
+        // Play Game
         if (userSelect == `1`) {
 
+
+            // Category Select
             console.log(
                 `Let's get going! What category would you like to choose? 
     1. Animals
@@ -99,6 +104,7 @@ Goodluck and have fun!`);
 
                 let categorySelected;
 
+                // Standard Choice Validation Loop
              do {
 
                 categoryValidation = false;
@@ -137,6 +143,8 @@ Goodluck and have fun!`);
                 if (levelResult === false) {
                     const lossDecision = prompt(`Press 1 to return to Main Menu. Press 2 to Quit: `);
 
+
+                    // Standard Choice Validation Loop
                     do {
 
                         lossValidation = false;
@@ -162,6 +170,7 @@ Goodluck and have fun!`);
                     
                     levelLeave = false;
 
+                    // Standard Choice Validation Loop
                     // This allows the user to leave after winning any level.
                     do {
                         levelValidation = false; 
@@ -190,12 +199,12 @@ Goodluck and have fun!`);
                 } 
 
                 //User wins the game, they may choose to Return to Main Menu or quit the game.
-
                 if (levelResult === true && i === 4) {
                     console.log("Congratulations! You won the game! Would you like to play again?");
 
                     const winDecision = prompt(`Press 1 to return to Main Menu. Press 2 to Quit: `);
 
+                    // Standard Choice Validation Loop
                     do {
                         winValidation = false; 
 
